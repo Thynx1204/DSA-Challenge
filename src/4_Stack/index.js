@@ -1,8 +1,42 @@
 // Do not use arrays!
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
 export class Stack {
-  push(value) {}
+  constructor() {
+    this.top = null;
+    this.size = 0;
+  }
 
-  pop() {}
+  push(value) {
+    const newNode = new Node(value);
+    newNode.next = this.top;
+    this.top = newNode;
+    this.size++;
+  }
 
-  peek() {}
+  pop() {
+    if (this.top === null) {
+      throw new Error("Stack is empty");
+    }
+    const value = this.top.value;
+    this.top = this.top.next;
+    this.size--;
+    return value;
+  }
+
+  peek() {
+    if (this.top === null) {
+      throw new Error("Stack is empty");
+    }
+    return this.top.value;
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
 }
