@@ -36,7 +36,4 @@ export class Stack {
     return this.top.value;
   }
 
-  isEmpty() {
-    return this.size === 0;
-  }
 }
